@@ -20,35 +20,56 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 20px;
         }
         p {
             font-size: 16px;
             color: #333;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .notice {
+            font-size: 13px;
+            color: #d9534f;
+            background-color: #fdf7f7;
+            border: 1px solid #f5c6cb;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            text-align: left;
         }
         .btn {
             display: inline-block;
-            background-color: #007bff;
+            background-color: #ff9800; /* 注意を引くためにオレンジに変更 */
             color: white;
             text-decoration: none;
-            padding: 12px 24px;
+            padding: 14px 24px;
             border-radius: 4px;
             font-weight: bold;
+            transition: background-color 0.2s;
         }
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #e68a00;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>申し込みページ</h1>
-    <p>INUWASI birthday live - カリヲリ -</p>
-    <!-- 正しいURLを指定し、新しいタブで開きつつエラーを回避する設定に修正しました -->
-    <a href="https://eplus.jp/sf/detail/4017580001?P6=777" target="_blank" rel="noreferrer" class="btn">申し込みへ</a>
+    <h1>申し込み案内ページ</h1>
+    <p><strong>INUWASI birthday live<br>- カリヲリ -</strong></p>
+    
+    <!-- ユーザーがエラーで困らないための注意書きを追加 -->
+    <div class="notice">
+        ⚠️ <strong>【重要】エラーを回避する方法</strong><br>
+        チケット購入ページで「正しいページから申し込みください」と表示されるのを防ぐため、必ず以下のボタンから<strong>公式ファンクラブ（FC）にログインした状態</strong>で、FC内のリンクからお申し込みください。
+    </div>
+
+    <!-- 遷移先をイープラス直リンクではなく、公式FCのイベント詳細ページに変更 -->
+    <a href="https://inuwasi.jp" target="_blank" rel="noopener noreferrer" class="btn">
+        公式FCイベントページを開く
+    </a>
 </div>
 
 </body>
