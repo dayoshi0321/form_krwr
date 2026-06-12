@@ -5,58 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>申し込みページ</title>
     <style>
-        /* ページ全体のスタイル（中央配置にするための設定） */
+        /* ページ全体のスタイル（中央配置） */
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* 画面の高さに合わせる */
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+            font-family: sans-serif;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* コンテンツを囲むコンテナ */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 500px; /* 見やすさのため最大幅を少し狭めています */
+        }
+
+        /* カード（枠）のスタイル */
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             text-align: center;
         }
 
-        /* コンテンツを囲むコンテナのスタイル */
-        .container {
-            padding: 20px;
-        }
-
-        /* タイトル・イベント名のスタイル */
-        h1 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 30px;
-            font-weight: normal;
-        }
-
-        /* 申し込みボタン（リンク）のスタイル */
-        .btn-link {
-            display: inline-block;
-            text-decoration: none;
-            background-color: #007bff; /* ボタンの色（青） */
-            color: #fff; /* 文字の色（白） */
-            padding: 12px 30px;
+        /* イベント名のスタイル */
+        .description {
+            margin-bottom: 25px;
             font-size: 18px;
-            border-radius: 4px; /* 角の丸み */
-            transition: background-color 0.3s ease;
+            color: #333;
+            line-height: 1.4;
+            font-weight: bold;
+        }
+
+        /* 申し込みボタンのスタイル */
+        form input[type="submit"] {
+            width: 100%;
+            padding: 14px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            background-color: #ff00b8; /* ピンク色 */
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s ease;
         }
 
         /* ボタンにマウスを乗せたときの効果 */
-        .btn-link:hover {
-            background-color: #0056b3; /* 少し濃い青になる */
+        form input[type="submit"]:hover {
+            background-color: #e000a5;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- イベント名や見出し（必要に応じて書き換えてください） -->
-        <h1>【東京】「 INUWASI birthday live - カリヲリ - 」</h1>
-        
-        <!-- イープラスの申し込みリンク -->
-        <a href="https://eplus.jp/sf/detail/4017580001?P6=777" class="btn-link">申し込みへ</a>
+        <div class="card">
+            <!-- イベント名 -->
+            <div class="description">【東京】「 INUWASI birthday live - カリヲリ - 」</div>
+            
+            <!-- 認証データを送信するフォーム -->
+            <form method="post" action="https://eplus.jp">
+                <input type="submit" value="申し込みへ">
+                <!-- 遷移に必須な隠しデータ -->
+                <input type="hidden" name="keyword" value="21660">
+            </form>
+        </div>
     </div>
 
 </body>
